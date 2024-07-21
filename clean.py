@@ -2,6 +2,7 @@ import exifread
 import os
 import sys
 import re
+from send2trash import send2trash
 from pprint import pprint
 
 
@@ -18,11 +19,6 @@ def should_remove(base, file):
             return False
     return True
 
-
-def delete_all(files):
-    for f in files:
-        os.unlink(f)
-
 def main(base_path):
     files_to_remove = []
     for root, _, files in os.walk(base_path):
@@ -32,8 +28,8 @@ def main(base_path):
         for fname in removes:
             files_to_remove.append(os.path.join(root, fname))
     pprint(files_to_remove)
-    print("{} files to delete".format(len(files_to_remove)))
-    delete_all(files_to_remove)
+    send2trash(files_to_remove)
+    print("{} files moved to trash".format(len(files_to_remove)))
 
 if __name__ == '__main__':
     main(sys.argv[1])

@@ -5,8 +5,7 @@ import filecmp
 from datetime import datetime
 from pprint import pprint
 
-MAX_COUNT = 10000;
-FILENAME_PATTERN = re.compile(r"^\w*\....$")
+MAX_COUNT = 10000
 IMG_SUFFIXES = (".jpg", ".JPG", ".HEIF", ".heif", ".HEIC", ".heic", ".jpeg", ".JPEG", ".ARW", ".arw")
 
 def file_is_image(filename):

@@ -66,7 +66,7 @@ def import_image(source_path, dest_root):
     dest_path = os.path.join(dest_dir, filename)
     actual_dest_path = move_file(source_path, dest_path)
     if actual_dest_path is None:
-        print("same path", source_path)
+        print("skipped", source_path)
     else:
         print("moved", source_path, "to", actual_dest_path)
 

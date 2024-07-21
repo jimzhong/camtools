@@ -31,6 +31,7 @@ def get_date(filepath):
         timestamp_str = tags['EXIF DateTimeOriginal'].values
         timestamp = datetime.strptime(timestamp_str, '%Y:%m:%d %H:%M:%S')
     except KeyError:
+        print(filepath, "has no exif.")
         timestamp = get_earliest_stat_time(stat)
     return timestamp
     

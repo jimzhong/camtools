@@ -2,6 +2,7 @@ import exifread
 import os
 import sys
 import filecmp
+import shutil
 from datetime import datetime
 from pprint import pprint
 
@@ -53,7 +54,7 @@ def move_file(source_path, dest_path):
         if dest_path == source_path:
             return None
         if not os.path.exists(dest_path) or file_have_same_data(source_path, dest_path):
-            os.rename(source_path, dest_path)
+            shutil.move(source_path, dest_path)
             return dest_path
         # Reach here if dest_path exists and content differs
         dest_path = "{}_{}{}".format(prefix, count, ext)

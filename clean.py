@@ -12,7 +12,7 @@ def should_remove(base, file):
     if FILENAME_PATTERN.fullmatch(file) is None:
         return False
     path = os.path.join(base, file).removesuffix(".ARW").removesuffix(".arw")
-    for suffix in (".jpg", ".JPG", ".HEIF", ".heif", ".HEIC", ".heic"):
+    for suffix in (".jpg", ".JPG", ".HEIF", ".heif", ".HEIC", ".heic", ".HIF", ".hif"):
         fname = path + suffix
         if os.path.isfile(fname):
             print("{} exists".format(fname))
